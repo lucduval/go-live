@@ -30,11 +30,12 @@ export default function Phase2Vercel() {
                         Log into your Vercel dashboard and click <strong>Add New Project</strong>. Select your GitHub repository from the list.
                     </p>
                     <div className="pl-11 mb-6">
-                        <div className="flex aspect-video w-full items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50 text-slate-400">
-                            <div className="text-center">
-                                <ImageIcon className="mx-auto h-10 w-10 mb-2 opacity-50" />
-                                <span className="text-sm">Screenshot: Vercel Import Screen</span>
-                            </div>
+                        <div className="overflow-hidden rounded-lg border border-slate-200 shadow-sm">
+                            <img
+                                src="/images/vercel-import.png"
+                                alt="Vercel Import Project Screen"
+                                className="w-full object-cover"
+                            />
                         </div>
                     </div>
                 </section>
