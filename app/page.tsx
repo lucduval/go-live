@@ -1,65 +1,69 @@
-import Image from "next/image";
+import { ArrowRight, GitBranch, RefreshCw, Server } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
+          The Modern Deployment Workflow
+        </h1>
+        <p className="text-xl text-slate-600 max-w-2xl">
+          Forget FTP. Forget manual server uploads. Welcome to the era of
+          Git-based deployments.
+        </p>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-3 my-12">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mb-4 h-12 w-12 rounded-lg bg-teal-50 flex items-center justify-center">
+            <GitBranch className="h-6 w-6 text-teal-700" />
+          </div>
+          <h3 className="font-semibold text-slate-900">1. Push Code</h3>
+          <p className="text-sm text-slate-500 mt-2">
+            You simply push your changes to a specific branch on GitHub.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mb-4 h-12 w-12 rounded-lg bg-teal-50 flex items-center justify-center">
+            <RefreshCw className="h-6 w-6 text-teal-700" />
+          </div>
+          <h3 className="font-semibold text-slate-900">2. Auto-Build</h3>
+          <p className="text-sm text-slate-500 mt-2">
+            Vercel detects the change, clones your repo, and builds the app.
+          </p>
         </div>
-      </main>
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="mb-4 h-12 w-12 rounded-lg bg-teal-50 flex items-center justify-center">
+            <Server className="h-6 w-6 text-teal-700" />
+          </div>
+          <h3 className="font-semibold text-slate-900">3. Go Live</h3>
+          <p className="text-sm text-slate-500 mt-2">
+            Once built, your new version is instantly available globally.
+          </p>
+        </div>
+      </div>
+
+      <div className="rounded-2xl bg-slate-900 p-8 text-white relative overflow-hidden">
+        <div className="relative z-10">
+          <h2 className="text-2xl font-bold text-white mb-4 !mt-0">
+            Ready to start?
+          </h2>
+          <p className="text-slate-300 mb-8 max-w-xl">
+            This guide will walk you through taking a local Next.js MVP and
+            deploying it to a production-grade URL with HTTPS, CDN, and
+            CI/CD pipeline included.
+          </p>
+          <Link
+            href="/phase-1-git"
+            className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-500"
+          >
+            Start Phase 1: Git <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="absolute top-0 right-0 -mt-10 -mr-10 h-64 w-64 rounded-full bg-teal-900/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 -mb-10 -ml-10 h-64 w-64 rounded-full bg-indigo-900/30 blur-3xl" />
+      </div>
     </div>
   );
 }
